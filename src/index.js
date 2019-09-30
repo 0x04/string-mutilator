@@ -11,6 +11,6 @@ export { default as reverseBits } from './reverse-bits';
 export { default as rockdotize } from './rockdotize';
 export { default as rot13 } from './rot13';
 export { default as scramble } from './scramble';
-export { default as rotate } from './shift';
-export { default as rotateBits } from './shift-bits';
+export { default as shift } from './shift';
+export { default as shiftBits } from './shift-bits';
 export { default as toMANS } from './to-mans';
