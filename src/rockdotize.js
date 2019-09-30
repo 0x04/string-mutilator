@@ -1,11 +1,13 @@
 /**
- * Create heavy metal like rockdot string
+ * Create a heavy metal like rockdot string.
+ * @param {string} string The string to rockdotize.
+ * @param {RegExp} [regexp] A RegExp to select every character that should get rockdotized.
+ * @returns {string}
  * @see https://en.wikipedia.org/wiki/Metal_umlaut
  * @see https://github.com/bullgit/rockdotizer
- * @example "T̈ḧïs̈ ïs̈ ä r̈öc̈k̈d̈öẗïz̈ëd̈ s̈ẗr̈ïn̈g̈!"
- * @param {string} string
- * @param {RegExp} regexp
- * @returns {string}
+ * @example
+ * stringMutilator.rockdotize('Hello World!');
+ * // > 'Ḧël̈l̈ö Ẅör̈l̈d̈!'
  */
 const rockdotize = (string, regexp = /\w/ig) =>
   string.replace(

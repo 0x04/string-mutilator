@@ -1,3 +1,7 @@
+/**
+ * @module stringMutilator
+ */
+
 import * as charCase from './char-case';
 import * as compressor from './compressor';
 

@@ -1,9 +1,11 @@
 import shift from './shift';
 
 /**
- * Rotate the character bits of a string
- * @param {string} string
- * @param {number} n
+ * Rotate the character bits of a string.
+ * @param {string} string The input string.
+ * @param {number} [n] Number of digits to rotate the character bit.
+ *                     Positive for right rotation,
+ *                     negative for left rotation.
  * @returns {string}
  */
 const shiftBits = (string, n = 1) =>

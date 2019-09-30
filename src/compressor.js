@@ -1,7 +1,15 @@
 /**
- * Pack ASCII string
- * @param {string} string
+ * Functions for compressing (pack/unpack etc.) strings.
+ * @module stringMutilator/compressor
+ */
+
+/**
+ * Pack all characters of a 8-bit string.
+ * @param {string} string A 8-bit string to pack.
  * @returns {string}
+ * @example
+ * stringMutilator.compressor.pack('Hello World!');
+ * // > '䡥汬漠坯牬搡'
  */
 export const pack = string =>
   String.fromCharCode(
@@ -21,9 +29,12 @@ export const pack = string =>
   );
 
 /**
- * Unpack packed string
- * @param string
+ * Unpack a packed string.
+ * @param {string} string The packed string to unpack.
  * @returns {string}
+ * @example
+ * stringMutilator.compressor.unpack('䡥汬漠坯牬搡');
+ * // > 'Hello World!'
  */
 export const unpack = string =>
   unescape(
@@ -32,10 +43,14 @@ export const unpack = string =>
   );
 
 /**
- * Return the given, packed string with the unpack signature
- * @param {string} string
- * @param {boolean} withEval
+ * Return the given, packed string with the unpack signature.
+ * @param {string} string The packed string to signature.
+ * @param {boolean} withEval Determine if the result includes
+ *                  a `eval` command for executing code.
  * @returns {string}
+ * @example
+ * stringMutilator.compressor.signature('䡥汬漠坯牬搡');
+ * // > 'unescape(escape("䡥汬漠坯牬搡").replace(/u(..)/g, "$1%");'
  */
 export const signature = (string, withEval = false) =>
   (withEval ? 'eval(%s);' : '%s;')

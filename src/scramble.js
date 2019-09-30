@@ -1,7 +1,10 @@
 /**
- * Randomize the order of the characters in a string
- * @param {string} string
+ * Randomize the order of the characters in a string.
+ * @param {string} string The string to scramble.
  * @returns {string}
+ * @example
+ * stringMutilator.scramble('Hello World!');
+ * // > 'WorH!llo led'
  */
 const scramble = string =>
   string

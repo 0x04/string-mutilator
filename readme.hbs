@@ -1,0 +1,70 @@
+# string-mutilator
+
+A JavaScript library for mutilate strings.
+
+[![MIT license][license-badge]][license]
+
+
+## Motivation background
+
+Most of the code from this project was created during a personal codegolf
+competition to distort the appearance of strings as much as possible but
+without actually destroying their contents.
+
+So the name [`mutilator`][mutilator] come into my mind.
+
+> mutilator (plural mutilators)
+> 1. Agent noun of mutilate; one who mutilates.
+
+This sounds unnecessarily brutal for now, but I assure you that no strings
+will be harmed permanently, as long as the functions are used correctly. :smirk:
+
+So I decided to combine these "strange" functions into one library.
+More or less just for fun.
+
+
+{{>main}}
+
+
+## Involutory functions
+
+> An [involutory function][involution], is a function f that is its own inverse.
+
+TLDR; This type of function returns a result from a value that returns the
+initial value when the function is called again with the previous result.
+
+Which means in short:
+
+```js
+import { rot13 } from 'string-mutilator';
+
+rot13(rot13('Hello World!')) === 'Hello World!';
+// > true
+```
+
+### List of involutory
+
+* [`charCase.invert`](#module_stringMutilator/charCase.invert)
+* [`flipBits`](#flipBits)
+* [`reverse`](#reverse)
+* [`reverseBits`](#reverseBits)
+* [`rot13`](#rot13)
+
+
+## License
+
+&copy; 2019 by [Oliver Kühn][0x04]. Released under the [MIT license][license].
+
+
+<!-- Badges -->
+[license-badge]: https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge
+[license]: ./license
+
+
+<!-- Links -->
+[0x04]: mailto:ok@0x04.de
+
+
+<!-- Appendix -->
+[involution]: https://en.wikipedia.org/wiki/Involution_(mathematics)
+[mutilator]: https://en.wiktionary.org/wiki/mutilator

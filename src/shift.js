@@ -1,8 +1,13 @@
 /**
- * Rotate the characters of a string by `n` digits
- * @param {string }string
- * @param {number} n
+ * Shift the characters of a string by `n` digits.
+ * @param {string } string The string to shift.
+ * @param {number} [n] Number of digits to rotate the characters.
+ *                     Positive for right rotation,
+ *                     negative for left rotation.
  * @returns {string}
+ * @example
+ * stringMutilator.shift('Hello World!', 3);
+ * // > 'lo World!Hel'
  */
 const shift = (string, n = 1) =>
 {

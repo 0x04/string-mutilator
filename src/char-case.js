@@ -1,8 +1,16 @@
 /**
- * Swaps the case of every character in a string
- * @param {string} string
- * @param {number} every
+ * Functions for manipulating the letter case of strings.
+ * @module stringMutilator/charCase
+ */
+
+/**
+ * Invert the case of letters in a string.
+ * @param {string} string The string to be case inverted.
+ * @param {number} [every] Only invert every `n` letter.
  * @returns {string}
+ * @example
+ * stringMutilator.charCase.invert('Hello World!');
+ * // > 'hELLO wORLD!'
  */
 export const invert = (string, every = 0) => string.replace(
   /[a-z]/ig,
