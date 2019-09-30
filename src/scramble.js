@@ -7,7 +7,7 @@ const scramble = string =>
   string
     .split('')
     .reverse()
-    .sort(() => Math.round(Math.random()))
+    .sort(() => (Math.random() < 0.5) ? -1 : 1)
     .join('');
 
 export default scramble;
