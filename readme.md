@@ -33,7 +33,8 @@ More or less just for fun.
 <dd><p>Functions for compressing (pack/unpack etc.) strings.</p>
 </dd>
 <dt><a href="#module_stringMutilator">stringMutilator</a></dt>
-<dd></dd>
+<dd><p>Functions for mutilating strings.</p>
+</dd>
 </dl>
 
 ## Functions
@@ -52,7 +53,7 @@ except the first and last one, to keep it readable.</p>
 <dt><a href="#reverseBits">reverseBits(string)</a> ⇒ <code>string</code></dt>
 <dd><p>Reverse the character bits of a string. The 16 character bits of &#39;A&#39; are
 <code>00000000 01000001</code> - if we reverse the bits they look like this
-<code>1111111 10111110</code>. This means that &#39;A&#39; (0x41) becomes &#39;舀&#39; (0x8200).</p>
+<code>10000010 00000000</code>. This means that &#39;A&#39; (0x41) becomes &#39;舀&#39; (0x8200).</p>
 </dd>
 <dt><a href="#reverse">reverse(string)</a> ⇒ <code>string</code></dt>
 <dd><p>Reverse a string.</p>
@@ -67,7 +68,9 @@ except the first and last one, to keep it readable.</p>
 <dd><p>Randomize the order of the characters in a string.</p>
 </dd>
 <dt><a href="#shiftBits">shiftBits(string, [n])</a> ⇒ <code>string</code></dt>
-<dd><p>Rotate the character bits of a string.</p>
+<dd><p>Rotate the character bits of a string. The 16 character bits of &#39;A&#39; are
+<code>00000000 01000001</code> - if we shift the bits by -4 <code>n</code> digits they look like
+this <code>00010000 00000100</code>. This means that &#39;A&#39; (0x41) becomes &#39;င&#39; (0x1004).</p>
 </dd>
 <dt><a href="#shift">shift(string, [n])</a> ⇒ <code>string</code></dt>
 <dd><p>Shift the characters of a string by <code>n</code> digits.</p>
@@ -79,60 +82,60 @@ except the first and last one, to keep it readable.</p>
 <thead>
 <tr>
 <th><code>type</code></th>
-<th>Unicode Block</th>
+<th>Unicode name</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>0</td>
-<td>Mathematical Bold</td>
+<td>Mathematical Bold *</td>
 </tr>
 <tr>
 <td>1</td>
-<td>Mathematical Italic</td>
+<td>Mathematical Italic *</td>
 </tr>
 <tr>
 <td>2</td>
-<td>Mathematical Bold Italic</td>
+<td>Mathematical Bold Italic *</td>
 </tr>
 <tr>
 <td>3</td>
-<td>Mathematical Script Capital</td>
+<td>Mathematical Script Capital *</td>
 </tr>
 <tr>
 <td>4</td>
-<td>Mathematical Bold Script</td>
+<td>Mathematical Bold Script *</td>
 </tr>
 <tr>
 <td>5</td>
-<td>Mathematical Fraktur</td>
+<td>Mathematical Fraktur *</td>
 </tr>
 <tr>
 <td>6</td>
-<td>Mathematical Double-Struck</td>
+<td>Mathematical Double-Struck *</td>
 </tr>
 <tr>
 <td>7</td>
-<td>Mathematical Bold Fraktur</td>
+<td>Mathematical Bold Fraktur *</td>
 </tr>
 <tr>
 <td>8</td>
-<td>Mathematical Sans-Serif</td>
+<td>Mathematical Sans-Serif *</td>
 </tr>
 <tr>
 <td>9</td>
-<td>Mathematical Sans-Serif Bold</td>
+<td>Mathematical Sans-Serif Bold *</td>
 </tr>
 <tr>
 <td>10</td>
-<td>Mathematical Sans-Serif Italic</td>
+<td>Mathematical Sans-Serif Italic *</td>
 </tr>
 <tr>
 <td>11</td>
-<td>Mathematical Sans-Serif Bold Italic</td>
+<td>Mathematical Sans-Serif Bold Italic *</td>
 </tr>
 <tr>
 <td>12</td>
-<td>Mathematical Monospace</td>
+<td>Mathematical Monospace *</td>
 </tr>
 </tbody></table>
 </dd>
@@ -150,10 +153,10 @@ Invert the case of letters in a string.
 
 **Kind**: static constant of [<code>stringMutilator/charCase</code>](#module_stringMutilator/charCase)  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| string | <code>string</code> | The string to be case inverted. |
-| [every] | <code>number</code> | Only invert every `n` letter. |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| string | <code>string</code> |  | The string to be case inverted. |
+| [every] | <code>number</code> | <code>0</code> | Only invert every `n` letter. |
 
 **Example**  
 ```js
@@ -207,10 +210,10 @@ Return the given, packed string with the unpack signature.
 
 **Kind**: static constant of [<code>stringMutilator/compressor</code>](#module_stringMutilator/compressor)  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| string | <code>string</code> | The packed string to signature. |
-| withEval | <code>boolean</code> | Determine if the result includes                  a `eval` command for executing code. |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| string | <code>string</code> |  | The packed string to signature. |
+| [withEval] | <code>boolean</code> | <code>false</code> | Determine if the result includes                  a `eval` command for executing code. |
 
 **Example**  
 ```js
@@ -219,6 +222,8 @@ stringMutilator.compressor.signature('䡥汬漠坯牬搡');// > 'unescape(escap
 <a name="module_stringMutilator"></a>
 
 ## stringMutilator
+Functions for mutilating strings.
+
 <a name="flipBits"></a>
 
 ## flipBits(string) ⇒ <code>string</code>
@@ -254,7 +259,7 @@ stringMutilator.jumble('Hello World!');// > 'Hlelo Wrlod!'
 <a name="reverseBits"></a>
 
 ## reverseBits(string) ⇒ <code>string</code>
-Reverse the character bits of a string. The 16 character bits of 'A' are`00000000 01000001` - if we reverse the bits they look like this`1111111 10111110`. This means that 'A' (0x41) becomes '舀' (0x8200).
+Reverse the character bits of a string. The 16 character bits of 'A' are`00000000 01000001` - if we reverse the bits they look like this`10000010 00000000`. This means that 'A' (0x41) becomes '舀' (0x8200).
 
 **Kind**: global function  
 
@@ -279,7 +284,7 @@ Reverse a string.
 
 **Example**  
 ```js
-stringMutilator.reverse('Hello World.');// > '.dlroW olleH'
+stringMutilator.reverse('Hello World!');// > '!dlroW olleH'
 ```
 <a name="rockdotize"></a>
 
@@ -336,7 +341,7 @@ stringMutilator.scramble('Hello World!');// > 'WorH!llo led'
 <a name="shiftBits"></a>
 
 ## shiftBits(string, [n]) ⇒ <code>string</code>
-Rotate the character bits of a string.
+Rotate the character bits of a string. The 16 character bits of 'A' are`00000000 01000001` - if we shift the bits by -4 `n` digits they look likethis `00010000 00000100`. This means that 'A' (0x41) becomes 'င' (0x1004).
 
 **Kind**: global function  
 
@@ -364,10 +369,9 @@ stringMutilator.shift('Hello World!', 3);// > 'lo World!Hel'
 <a name="toMANS"></a>
 
 ## toMANS(string, [type]) ⇒ <code>string</code>
-Convert A-Z to **M**athematical **A**lpha**n**umeric **S**ymbols.List of `type` values:| `type` | Unicode Block || --- | --- || 0 | Mathematical Bold || 1 | Mathematical Italic || 2 | Mathematical Bold Italic || 3 | Mathematical Script Capital || 4 | Mathematical Bold Script || 5 | Mathematical Fraktur || 6 | Mathematical Double-Struck || 7 | Mathematical Bold Fraktur || 8 | Mathematical Sans-Serif || 9 | Mathematical Sans-Serif Bold || 10 | Mathematical Sans-Serif Italic || 11 | Mathematical Sans-Serif Bold Italic || 12 | Mathematical Monospace |
+Convert A-Z to **M**athematical **A**lpha**n**umeric **S**ymbols.List of `type` values:| `type` | Unicode name || --- | --- || 0 | Mathematical Bold * || 1 | Mathematical Italic * || 2 | Mathematical Bold Italic * || 3 | Mathematical Script Capital * || 4 | Mathematical Bold Script * || 5 | Mathematical Fraktur * || 6 | Mathematical Double-Struck * || 7 | Mathematical Bold Fraktur * || 8 | Mathematical Sans-Serif * || 9 | Mathematical Sans-Serif Bold * || 10 | Mathematical Sans-Serif Italic * || 11 | Mathematical Sans-Serif Bold Italic * || 12 | Mathematical Monospace * |
 
 **Kind**: global function  
-**Summary**: Convert A-Z to **M**athematical **A**lpha**n**umeric **S**ymbols.  
 **See**: https://unicode-table.com/en/blocks/mathematical-alphanumeric-symbols  
 
 | Param | Type | Default | Description |
@@ -388,7 +392,10 @@ stringMutilator.toMANS('Hello World!', 1);// > '𝐻𝑒𝑙𝑙𝑜 𝑊𝑜�
 TLDR; This type of function returns a result from a value that returns the
 initial value when the function is called again with the previous result.
 
-Which means in short:
+
+### List of involutory functions
+
+**Example:**
 
 ```js
 import { rot13 } from 'string-mutilator';
@@ -397,13 +404,26 @@ rot13(rot13('Hello World!')) === 'Hello World!';
 // > true
 ```
 
-### List of involutory
-
 * [`charCase.invert`](#module_stringMutilator/charCase.invert)
 * [`flipBits`](#flipBits)
 * [`reverse`](#reverse)
 * [`reverseBits`](#reverseBits)
 * [`rot13`](#rot13)
+
+
+### List of involutory functions with negated arguments
+
+**Example:**
+
+```
+import { shift } from 'string-mutilator';
+
+shift(shift('Hello World!', 5), -5) === 'Hello World!';
+// > true
+```
+
+* [`shift`](#shift)
+* [`shiftBits`](#shiftBits)
 
 
 ## License

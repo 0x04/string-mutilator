@@ -15,7 +15,7 @@ const jumbleWord = word =>
  * Jumble the letters of all words in a string,
  * except the first and last one, to keep it readable.
  * @param {string} string The input string.
- * @param {number} [runs] The number of attempts to get a real randomized
+ * @param {number} [runs=3] The number of attempts to get a real randomized
  *                        word string.
  * @returns {string}
  * @see https://www.mnn.com/lifestyle/arts-culture/stories/why-your-brain-can-read-jumbled-letters

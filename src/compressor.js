@@ -45,7 +45,7 @@ export const unpack = string =>
 /**
  * Return the given, packed string with the unpack signature.
  * @param {string} string The packed string to signature.
- * @param {boolean} withEval Determine if the result includes
+ * @param {boolean} [withEval=false] Determine if the result includes
  *                  a `eval` command for executing code.
  * @returns {string}
  * @example

@@ -1,7 +1,7 @@
 /**
  * Shift the characters of a string by `n` digits.
- * @param {string } string The string to shift.
- * @param {number} [n] Number of digits to rotate the characters.
+ * @param {string} string The string to shift.
+ * @param {number} [n=1] Number of digits to rotate the characters.
  *                     Positive for right rotation,
  *                     negative for left rotation.
  * @returns {string}

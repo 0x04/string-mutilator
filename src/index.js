@@ -1,4 +1,5 @@
 /**
+ * Functions for mutilating strings.
  * @module stringMutilator
  */
 

@@ -33,7 +33,10 @@ More or less just for fun.
 TLDR; This type of function returns a result from a value that returns the
 initial value when the function is called again with the previous result.
 
-Which means in short:
+
+### List of involutory functions
+
+**Example:**
 
 ```js
 import { rot13 } from 'string-mutilator';
@@ -42,13 +45,26 @@ rot13(rot13('Hello World!')) === 'Hello World!';
 // > true
 ```
 
-### List of involutory
-
 * [`charCase.invert`](#module_stringMutilator/charCase.invert)
 * [`flipBits`](#flipBits)
 * [`reverse`](#reverse)
 * [`reverseBits`](#reverseBits)
 * [`rot13`](#rot13)
+
+
+### List of involutory functions with negated arguments
+
+**Example:**
+
+```
+import { shift } from 'string-mutilator';
+
+shift(shift('Hello World!', 5), -5) === 'Hello World!';
+// > true
+```
+
+* [`shift`](#shift)
+* [`shiftBits`](#shiftBits)
 
 
 ## License
