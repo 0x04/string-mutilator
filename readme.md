@@ -168,7 +168,8 @@ Invert the case of letters in a string.
 
 **Example**  
 ```js
-stringMutilator.charCase.invert('Hello World!');// > 'hELLO wORLD!'
+stringMutilator.charCase.invert('Hello World!');
+// > 'hELLO wORLD!'
 ```
 <a name="module_stringMutilator/compressor"></a>
 
@@ -194,7 +195,8 @@ Pack all characters of a 8-bit string.
 
 **Example**  
 ```js
-stringMutilator.compressor.pack('Hello World!');// > '䡥汬漠坯牬搡'
+stringMutilator.compressor.pack('Hello World!');
+// > '䡥汬漠坯牬搡'
 ```
 <a name="module_stringMutilator/compressor.unpack"></a>
 
@@ -209,7 +211,8 @@ Unpack a packed string.
 
 **Example**  
 ```js
-stringMutilator.compressor.unpack('䡥汬漠坯牬搡');// > 'Hello World!'
+stringMutilator.compressor.unpack('䡥汬漠坯牬搡');
+// > 'Hello World!'
 ```
 <a name="module_stringMutilator/compressor.signature"></a>
 
@@ -225,7 +228,8 @@ Return the given, packed string with the unpack signature.
 
 **Example**  
 ```js
-stringMutilator.compressor.signature('䡥汬漠坯牬搡');// > 'unescape(escape("䡥汬漠坯牬搡").replace(/u(..)/g, "$1%");'
+stringMutilator.compressor.signature('䡥汬漠坯牬搡');
+// > 'unescape(escape("䡥汬漠坯牬搡").replace(/u(..)/g, "$1%");'
 ```
 <a name="module_stringMutilator"></a>
 
@@ -235,7 +239,10 @@ Functions for mutilating strings.
 <a name="flipBits"></a>
 
 ## flipBits(string) ⇒ <code>string</code>
-Flip the character bits of a string. The 16 character bits of 'A' are`00000000 01000001` - if we flip the bits (so every 0 becomes 1 and viceversa) they look like this `11111111 10111110`. This means that 'A' (0x41)becomes 'ﾾ' (0xFFBE).
+Flip the character bits of a string. The 16 character bits of 'A' are
+`00000000 01000001` - if we flip the bits (so every 0 becomes 1 and vice
+versa) they look like this `11111111 10111110`. This means that 'A' (0x41)
+becomes 'ﾾ' (0xFFBE).
 
 **Kind**: global function  
 
@@ -245,12 +252,14 @@ Flip the character bits of a string. The 16 character bits of 'A' are`00000000 
 
 **Example**  
 ```js
-stringMutilator.flipBits('Hello World!');// > 'ﾷﾚﾓﾓﾐ￟ﾨﾐﾍﾓﾛ￞'
+stringMutilator.flipBits('Hello World!');
+// > 'ﾷﾚﾓﾓﾐ￟ﾨﾐﾍﾓﾛ￞'
 ```
 <a name="jumble"></a>
 
 ## jumble(string, [runs]) ⇒ <code>string</code>
-Jumble the letters of all words in a string,except the first and last one, to keep it readable.
+Jumble the letters of all words in a string,
+except the first and last one, to keep it readable.
 
 **Kind**: global function  
 **See**: https://www.mnn.com/lifestyle/arts-culture/stories/why-your-brain-can-read-jumbled-letters  
@@ -262,12 +271,15 @@ Jumble the letters of all words in a string,except the first and last one, to k
 
 **Example**  
 ```js
-stringMutilator.jumble('Hello World!');// > 'Hlelo Wrlod!'
+stringMutilator.jumble('Hello World!');
+// > 'Hlelo Wrlod!'
 ```
 <a name="reverseBits"></a>
 
 ## reverseBits(string) ⇒ <code>string</code>
-Reverse the character bits of a string. The 16 character bits of 'A' are`00000000 01000001` - if we reverse the bits they look like this`10000010 00000000`. This means that 'A' (0x41) becomes '舀' (0x8200).
+Reverse the character bits of a string. The 16 character bits of 'A' are
+`00000000 01000001` - if we reverse the bits they look like this
+`10000010 00000000`. This means that 'A' (0x41) becomes '舀' (0x8200).
 
 **Kind**: global function  
 
@@ -277,7 +289,8 @@ Reverse the character bits of a string. The 16 character bits of 'A' are`000000
 
 **Example**  
 ```js
-stringMutilator.reverseBits('Hello World!');// > 'ሀꘀ㘀㘀Ѐ一㘀☀萀'
+stringMutilator.reverseBits('Hello World!');
+// > 'ሀꘀ㘀㘀Ѐ一㘀☀萀'
 ```
 <a name="reverse"></a>
 
@@ -292,7 +305,8 @@ Reverse a string.
 
 **Example**  
 ```js
-stringMutilator.reverse('Hello World!');// > '!dlroW olleH'
+stringMutilator.reverse('Hello World!');
+// > '!dlroW olleH'
 ```
 <a name="rockdotize"></a>
 
@@ -313,7 +327,8 @@ Create a heavy metal like rockdot string.
 
 **Example**  
 ```js
-stringMutilator.rockdotize('Hello World!');// > 'Ḧël̈l̈ö Ẅör̈l̈d̈!'
+stringMutilator.rockdotize('Hello World!');
+// > 'Ḧël̈l̈ö Ẅör̈l̈d̈!'
 ```
 <a name="rot13"></a>
 
@@ -329,7 +344,8 @@ Rotate the character indexes of a string by 13 digits.
 
 **Example**  
 ```js
-stringMutilator.rot13('Hello World!');// > 'Uryyb Jbeyq!'
+stringMutilator.rot13('Hello World!');
+// > 'Uryyb Jbeyq!'
 ```
 <a name="scramble"></a>
 
@@ -344,12 +360,15 @@ Randomize the order of the characters in a string.
 
 **Example**  
 ```js
-stringMutilator.scramble('Hello World!');// > 'WorH!llo led'
+stringMutilator.scramble('Hello World!');
+// > 'WorH!llo led'
 ```
 <a name="shiftBits"></a>
 
 ## shiftBits(string, [n]) ⇒ <code>string</code>
-Rotate the character bits of a string. The 16 character bits of 'A' are`00000000 01000001` - if we shift the bits by -4 `n` digits they look likethis `00010000 00000100`. This means that 'A' (0x41) becomes 'င' (0x1004).
+Rotate the character bits of a string. The 16 character bits of 'A' are
+`00000000 01000001` - if we shift the bits by -4 `n` digits they look like
+this `00010000 00000100`. This means that 'A' (0x41) becomes 'င' (0x1004).
 
 **Kind**: global function  
 
@@ -372,12 +391,31 @@ Shift the characters of a string by `n` digits.
 
 **Example**  
 ```js
-stringMutilator.shift('Hello World!', 3);// > 'lo World!Hel'
+stringMutilator.shift('Hello World!', 3);
+// > 'lo World!Hel'
 ```
 <a name="toMANS"></a>
 
 ## toMANS(string, [type]) ⇒ <code>string</code>
-Convert A-Z to **M**athematical **A**lpha**n**umeric **S**ymbols.List of `type` values:| `type` | Unicode name || --- | --- || 0 | Mathematical Bold * || 1 | Mathematical Italic * || 2 | Mathematical Bold Italic * || 3 | Mathematical Script Capital * || 4 | Mathematical Bold Script * || 5 | Mathematical Fraktur * || 6 | Mathematical Double-Struck * || 7 | Mathematical Bold Fraktur * || 8 | Mathematical Sans-Serif * || 9 | Mathematical Sans-Serif Bold * || 10 | Mathematical Sans-Serif Italic * || 11 | Mathematical Sans-Serif Bold Italic * || 12 | Mathematical Monospace * |
+Convert A-Z to **M**athematical **A**lpha**n**umeric **S**ymbols.
+
+List of `type` values:
+
+| `type` | Unicode name |
+| --- | --- |
+| 0 | Mathematical Bold * |
+| 1 | Mathematical Italic * |
+| 2 | Mathematical Bold Italic * |
+| 3 | Mathematical Script Capital * |
+| 4 | Mathematical Bold Script * |
+| 5 | Mathematical Fraktur * |
+| 6 | Mathematical Double-Struck * |
+| 7 | Mathematical Bold Fraktur * |
+| 8 | Mathematical Sans-Serif * |
+| 9 | Mathematical Sans-Serif Bold * |
+| 10 | Mathematical Sans-Serif Italic * |
+| 11 | Mathematical Sans-Serif Bold Italic * |
+| 12 | Mathematical Monospace * |
 
 **Kind**: global function  
 **See**: https://unicode-table.com/en/blocks/mathematical-alphanumeric-symbols  
@@ -389,7 +427,8 @@ Convert A-Z to **M**athematical **A**lpha**n**umeric **S**ymbols.List of `type
 
 **Example**  
 ```js
-stringMutilator.toMANS('Hello World!', 1);// > '𝐻𝑒𝑙𝑙𝑜 𝑊𝑜𝑟𝑙𝑑.'
+stringMutilator.toMANS('Hello World!', 1);
+// > '𝐻𝑒𝑙𝑙𝑜 𝑊𝑜𝑟𝑙𝑑.'
 ```
 
 
@@ -456,27 +495,26 @@ $ string-mutilator --help
   $ string-mutilator <function> <string> [argument]...
 
     Functions
-    charCase.invert
-    compressor.pack
-    compressor.unpack
-    compressor.signature
-    flipBits
-    jumble
-    reverse
-    reverseBits
-    rockdotize
-    rot13
-    scramble
-    shift
-    shiftBits
-    toMANS
+      charCase.invert
+      compressor.pack
+      compressor.unpack
+      compressor.signature
+      flipBits
+      jumble
+      reverse
+      reverseBits
+      rockdotize
+      rot13
+      scramble
+      shift
+      shiftBits
+      toMANS
 
     Examples
-    $ string-mutilator shift "Hello World!" 6
-    $ string-mutilator charCase.invert "Hello World!"
-    $ string-mutilator toMANS "Hello World!" 4
+      $ string-mutilator shift "Hello World!" 6
+      $ string-mutilator charCase.invert "Hello World!"
+      $ string-mutilator toMANS "Hello World!" 4
 ```
-
 
 
 ## License
