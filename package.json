@@ -5,6 +5,9 @@
       "@babel/register"
     ]
   },
+  "bin": {
+    "string-mutilator": "./cli.js"
+  },
   "dependencies": {},
   "description": "A JavaScript library for mutilate strings.",
   "devDependencies": {

@@ -28,6 +28,7 @@ More or less just for fun.
 1. [Modules](#user-content-module)
 2. [Functions](#user-content-functions)
 3. [Involutory functions](#user-content-involutory-functions)
+4. [Using the CLI](#user-content-using-the-cli)
 
 
 {{>main}}
@@ -67,6 +68,56 @@ shift(shift('Hello World!', 5), -5) === 'Hello World!';
 
 * [`shift`](#shift)
 * [`shiftBits`](#shiftBits)
+
+
+## Using the CLI
+
+### Install
+
+**To use it in your project**
+
+```bash
+npm install --save string-mutilator
+```
+
+**To us it globally**
+
+```bash
+npm install --global string-mutilator
+```
+
+### General usage
+
+```plain
+$ string-mutilator --help
+
+  Functions for mutilating strings.
+
+  Usage
+  $ string-mutilator <function> <string> [argument]...
+
+    Functions
+    charCase.invert
+    compressor.pack
+    compressor.unpack
+    compressor.signature
+    flipBits
+    jumble
+    reverse
+    reverseBits
+    rockdotize
+    rot13
+    scramble
+    shift
+    shiftBits
+    toMANS
+
+    Examples
+    $ string-mutilator shift "Hello World!" 6
+    $ string-mutilator charCase.invert "Hello World!"
+    $ string-mutilator toMANS "Hello World!" 4
+```
+
 
 
 ## License
