@@ -23,6 +23,13 @@ So I decided to combine these "strange" functions into one library.
 More or less just for fun.
 
 
+## Table of content
+
+1. [Modules](#user-content-module)
+2. [Functions](#user-content-functions)
+3. [Involutory functions](#user-content-involutory-functions)
+
+
 ## Modules
 
 <dl>
@@ -389,13 +396,9 @@ stringMutilator.toMANS('Hello World!', 1);// > '𝐻𝑒𝑙𝑙𝑜 𝑊𝑜�
 
 > An [involutory function][involution], is a function f that is its own inverse.
 
-TLDR; This type of function returns a result from a value that returns the
-initial value when the function is called again with the previous result.
-
-
 ### List of involutory functions
 
-**Example:**
+**Example**
 
 ```js
 import { rot13 } from 'string-mutilator';
@@ -410,10 +413,9 @@ rot13(rot13('Hello World!')) === 'Hello World!';
 * [`reverseBits`](#reverseBits)
 * [`rot13`](#rot13)
 
-
 ### List of involutory functions with negated arguments
 
-**Example:**
+**Example**
 
 ```
 import { shift } from 'string-mutilator';
