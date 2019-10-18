@@ -11,7 +11,7 @@
  * stringMutilator.compressor.pack('Hello World!');
  * // > '䡥汬漠坯牬搡'
  */
-export const pack = string =>
+const pack = string =>
   String.fromCharCode(
     ...string.match(/[\S\s]{1,2}/g)
       .map(e => {
@@ -36,7 +36,7 @@ export const pack = string =>
  * stringMutilator.compressor.unpack('䡥汬漠坯牬搡');
  * // > 'Hello World!'
  */
-export const unpack = string =>
+const unpack = string =>
   unescape(
     escape(string)
       .replace(/u(..)/g, '$1%')
@@ -52,9 +52,23 @@ export const unpack = string =>
  * stringMutilator.compressor.signature('䡥汬漠坯牬搡');
  * // > 'unescape(escape("䡥汬漠坯牬搡").replace(/u(..)/g, "$1%");'
  */
-export const signature = (string, withEval = false) =>
+const signature = (string, withEval = false) =>
   (withEval ? 'eval(%s);' : '%s;')
     .replace(
       '%s',
       `unescape(escape("${string}").replace(/u(..)/g, "$1%")`
     );
+
+export default
+{
+  pack,
+  unpack,
+  signature
+};
+
+export
+{
+  pack,
+  unpack,
+  signature
+};

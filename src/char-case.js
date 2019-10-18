@@ -12,7 +12,7 @@
  * stringMutilator.charCase.invert('Hello World!');
  * // > 'hELLO wORLD!'
  */
-export const invert = (string, every = 0) => string.replace(
+const invert = (string, every = 0) => string.replace(
   /[a-z]/ig,
   (char, index) => String.fromCharCode(
     char.charCodeAt() ^ 32 * +(!every || index % every === 0)
@@ -27,3 +27,13 @@ export const invert = (string, every = 0) => string.replace(
 // * dot.case
 // * PascalCase
 // * Capitalize
+
+export default
+{
+  invert
+};
+
+export
+{
+  invert
+};

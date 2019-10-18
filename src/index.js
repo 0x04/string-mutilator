@@ -16,7 +16,8 @@ import shift from './shift';
 import shiftBits from './shift-bits';
 import toMANS from './to-mans';
 
-export default {
+export default
+{
   charCase,
   compressor,
   flipBits,
@@ -31,7 +32,8 @@ export default {
   toMANS
 };
 
-export {
+export
+{
   charCase,
   compressor,
   flipBits,
