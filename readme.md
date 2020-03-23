@@ -154,12 +154,12 @@ this <code>00010000 00000100</code>. This means that &#39;A&#39; (0x41) becomes 
 ## stringMutilator/charCase
 Functions for manipulating the letter case of strings.
 
-<a name="module_stringMutilator/charCase.invert"></a>
+<a name="module_stringMutilator/charCase..invert"></a>
 
-### stringMutilator/charCase.invert ⇒ <code>string</code>
+### stringMutilator/charCase~invert(string, [every]) ⇒ <code>string</code>
 Invert the case of letters in a string.
 
-**Kind**: static constant of [<code>stringMutilator/charCase</code>](#module_stringMutilator/charCase)  
+**Kind**: inner method of [<code>stringMutilator/charCase</code>](#module_stringMutilator/charCase)  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -178,16 +178,16 @@ Functions for compressing (pack/unpack etc.) strings.
 
 
 * [stringMutilator/compressor](#module_stringMutilator/compressor)
-    * [.pack](#module_stringMutilator/compressor.pack) ⇒ <code>string</code>
-    * [.unpack](#module_stringMutilator/compressor.unpack) ⇒ <code>string</code>
-    * [.signature](#module_stringMutilator/compressor.signature) ⇒ <code>string</code>
+    * [~pack(string)](#module_stringMutilator/compressor..pack) ⇒ <code>string</code>
+    * [~unpack(string)](#module_stringMutilator/compressor..unpack) ⇒ <code>string</code>
+    * [~signature(string, [withEval])](#module_stringMutilator/compressor..signature) ⇒ <code>string</code>
 
-<a name="module_stringMutilator/compressor.pack"></a>
+<a name="module_stringMutilator/compressor..pack"></a>
 
-### stringMutilator/compressor.pack ⇒ <code>string</code>
+### stringMutilator/compressor~pack(string) ⇒ <code>string</code>
 Pack all characters of a 8-bit string.
 
-**Kind**: static constant of [<code>stringMutilator/compressor</code>](#module_stringMutilator/compressor)  
+**Kind**: inner method of [<code>stringMutilator/compressor</code>](#module_stringMutilator/compressor)  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -198,12 +198,12 @@ Pack all characters of a 8-bit string.
 stringMutilator.compressor.pack('Hello World!');
 // > '䡥汬漠坯牬搡'
 ```
-<a name="module_stringMutilator/compressor.unpack"></a>
+<a name="module_stringMutilator/compressor..unpack"></a>
 
-### stringMutilator/compressor.unpack ⇒ <code>string</code>
+### stringMutilator/compressor~unpack(string) ⇒ <code>string</code>
 Unpack a packed string.
 
-**Kind**: static constant of [<code>stringMutilator/compressor</code>](#module_stringMutilator/compressor)  
+**Kind**: inner method of [<code>stringMutilator/compressor</code>](#module_stringMutilator/compressor)  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -214,12 +214,12 @@ Unpack a packed string.
 stringMutilator.compressor.unpack('䡥汬漠坯牬搡');
 // > 'Hello World!'
 ```
-<a name="module_stringMutilator/compressor.signature"></a>
+<a name="module_stringMutilator/compressor..signature"></a>
 
-### stringMutilator/compressor.signature ⇒ <code>string</code>
+### stringMutilator/compressor~signature(string, [withEval]) ⇒ <code>string</code>
 Return the given, packed string with the unpack signature.
 
-**Kind**: static constant of [<code>stringMutilator/compressor</code>](#module_stringMutilator/compressor)  
+**Kind**: inner method of [<code>stringMutilator/compressor</code>](#module_stringMutilator/compressor)  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
