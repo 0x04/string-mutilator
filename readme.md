@@ -478,7 +478,7 @@ shift(shift('Hello World!', 5), -5) === 'Hello World!';
 npm install --save string-mutilator
 ```
 
-**To us it globally**
+**To use it globally**
 
 ```bash
 npm install --global string-mutilator
