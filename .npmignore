@@ -1,0 +1,7 @@
+src
+.babelrc
+.gitattributes
+.gitignore
+.editorconfig
+package-lock.json
+template-readme.hbs
