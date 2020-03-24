@@ -441,7 +441,7 @@ stringMutilator.toMANS('Hello World!', 1);
 **Example**
 
 ```js
-import { rot13 } from 'string-mutilator';
+import { rot13 } from '@0x04/string-mutilator';
 
 rot13(rot13('Hello World!')) === 'Hello World!';
 // > true
@@ -458,7 +458,7 @@ rot13(rot13('Hello World!')) === 'Hello World!';
 **Example**
 
 ```
-import { shift } from 'string-mutilator';
+import { shift } from '@0x04/string-mutilator';
 
 shift(shift('Hello World!', 5), -5) === 'Hello World!';
 // > true
@@ -475,13 +475,13 @@ shift(shift('Hello World!', 5), -5) === 'Hello World!';
 **To use it in your project**
 
 ```bash
-npm install --save string-mutilator
+$ npm install --save @0x04/string-mutilator
 ```
 
 **To use it globally**
 
 ```bash
-npm install --global string-mutilator
+$ npm install --global @0x04/string-mutilator
 ```
 
 ### General usage
