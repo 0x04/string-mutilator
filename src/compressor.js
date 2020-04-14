@@ -56,7 +56,7 @@ const signature = (string, withEval = false) =>
   (withEval ? 'eval(%s);' : '%s;')
     .replace(
       '%s',
-      `unescape(escape("${string}").replace(/u(..)/g, "$1%")`
+      `unescape(escape("${string}").replace(/u(..)/g, "$1%"))`
     );
 
 export default
