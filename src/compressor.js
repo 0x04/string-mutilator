@@ -13,7 +13,7 @@
  */
 const pack = string =>
   String.fromCharCode(
-    ...string.match(/[\S\s]{1,2}/g)
+    ...(string.match(/[\S\s]{1,2}/g) || [])
       .map(e => {
         const cc0 = e.charCodeAt(0);
         const cc1 = e.charCodeAt(1);
