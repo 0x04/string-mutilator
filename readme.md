@@ -54,6 +54,10 @@ More or less just for fun.
 versa) they look like this <code>11111111 10111110</code>. This means that &#39;A&#39; (0x41)
 becomes &#39;ﾾ&#39; (0xFFBE).</p>
 </dd>
+<dt><a href="#gobbledygook">gobbledygook(string, [exclude])</a> ⇒ <code>string</code></dt>
+<dd><p>Applies <code>toMANS</code> to all characters with a random <code>type</code>.
+For example <code>Hello World</code> turns into <code>𝐇𝖾𝓵𝗹𝘰 𝔚𝗈𝒓𝔩𝔡</code>.</p>
+</dd>
 <dt><a href="#jumble">jumble(string, [runs])</a> ⇒ <code>string</code></dt>
 <dd><p>Jumble the letters of all words in a string,
 except the first and last one, to keep it readable.</p>
@@ -254,6 +258,24 @@ becomes 'ﾾ' (0xFFBE).
 ```js
 stringMutilator.flipBits('Hello World!');
 // > 'ﾷﾚﾓﾓﾐ￟ﾨﾐﾍﾓﾛ￞'
+```
+<a name="gobbledygook"></a>
+
+## gobbledygook(string, [exclude]) ⇒ <code>string</code>
+Applies `toMANS` to all characters with a random `type`.
+For example `Hello World` turns into `𝐇𝖾𝓵𝗹𝘰 𝔚𝗈𝒓𝔩𝔡`.
+
+**Kind**: global function  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| string | <code>string</code> |  | The input string |
+| [exclude] | <code>array</code> | <code>[ 1, 2 ]</code> | Exclude specific `type` of `toMANS` |
+
+**Example**  
+```js
+stringMutilator.goobledydook('Hello World');
+// > 𝐇𝖾𝓵𝗹𝘰 𝔚𝗈𝒓𝔩𝔡
 ```
 <a name="jumble"></a>
 
@@ -500,6 +522,7 @@ $ string-mutilator --help
       compressor.unpack
       compressor.signature
       flipBits
+      gobbledygook
       jumble
       reverse
       reverseBits

@@ -6,6 +6,7 @@
 import * as charCase from './char-case';
 import * as compressor from './compressor';
 import flipBits from './flip-bits';
+import gobbledygook from './gobbledygook';
 import jumble from './jumble';
 import reverse from './reverse';
 import reverseBits from './reverse-bits';
@@ -21,6 +22,7 @@ export default
   charCase,
   compressor,
   flipBits,
+  gobbledygook,
   jumble,
   reverse,
   reverseBits,
@@ -37,6 +39,7 @@ export
   charCase,
   compressor,
   flipBits,
+  gobbledygook,
   jumble,
   reverse,
   reverseBits,

@@ -10,13 +10,14 @@ const usageString = `
 
   Usage
     $ string-mutilator <function> <string> [argument]...
-    
+
   Functions
     charCase.invert
     compressor.pack
     compressor.unpack
     compressor.signature
     flipBits
+    gobbledygook
     jumble
     reverse
     reverseBits
@@ -26,7 +27,7 @@ const usageString = `
     shift
     shiftBits
     toMANS
-    
+
   Examples
     $ string-mutilator shift "Hello World!" 6
     $ string-mutilator charCase.invert "Hello World!"
