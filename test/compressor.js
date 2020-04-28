@@ -25,14 +25,14 @@ test('unpack', t =>
 test('signature function', t =>
   t.is(
     compressor.signature(pck),
-    `unescape(escape("${pck}").replace(/u(..)/g, "$1%");`
+    `unescape(escape("${pck}").replace(/u(..)/g, "$1%"));`
   )
 );
 
 test('signature function with argument `withEval`', t =>
   t.is(
     compressor.signature(pck, true),
-    `eval(unescape(escape("${pck}").replace(/u(..)/g, "$1%"));`
+    `eval(unescape(escape("${pck}").replace(/u(..)/g, "$1%")));`
   )
 );
 
