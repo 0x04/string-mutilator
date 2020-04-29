@@ -54,9 +54,6 @@ More or less just for fun.
 versa) they look like this <code>11111111 10111110</code>. This means that &#39;A&#39; (0x41)
 becomes &#39;ﾾ&#39; (0xFFBE).</p>
 </dd>
-<dt><a href="#getRandomType">getRandomType([exclude])</a> ⇒ <code>number</code></dt>
-<dd><p>Returns a random <code>type</code> for <code>toMANS</code> (0-12).</p>
-</dd>
 <dt><a href="#gobbledygook">gobbledygook(string, [exclude])</a> ⇒ <code>string</code></dt>
 <dd><p>Applies <code>toMANS</code> to all characters with a random <code>type</code>.
 For example <code>Hello World</code> turns into <code>𝐇𝖾𝓵𝗹𝘰 𝔚𝗈𝒓𝔩𝔡</code>.</p>
@@ -262,17 +259,6 @@ becomes 'ﾾ' (0xFFBE).
 stringMutilator.flipBits('Hello World!');
 // > 'ﾷﾚﾓﾓﾐ￟ﾨﾐﾍﾓﾛ￞'
 ```
-<a name="getRandomType"></a>
-
-## getRandomType([exclude]) ⇒ <code>number</code>
-Returns a random `type` for `toMANS` (0-12).
-
-**Kind**: global function  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| [exclude] | <code>array</code> | <code>[]</code> | Exclude specific `type` |
-
 <a name="gobbledygook"></a>
 
 ## gobbledygook(string, [exclude]) ⇒ <code>string</code>

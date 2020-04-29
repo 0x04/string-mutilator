@@ -2,6 +2,7 @@ import toMANS from './to-mans';
 
 /**
  * Returns a random `type` for `toMANS` (0-12).
+ * @private
  * @param {array} [exclude=[]] Exclude specific `type`
  * @returns {number}
  */
