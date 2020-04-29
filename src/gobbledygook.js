@@ -24,7 +24,7 @@ const getRandomType = (exclude = []) => {
  * @param {array} [exclude=[ 1, 2 ]] Exclude specific `type` of `toMANS`
  * @returns {string}
  * @example
- * stringMutilator.goobledydook('Hello World');
+ * stringMutilator.gobbledygook('Hello World');
  * // > 𝐇𝖾𝓵𝗹𝘰 𝔚𝗈𝒓𝔩𝔡
  */
 const gobbledygook = (string, exclude = [ 1, 3 ]) =>
