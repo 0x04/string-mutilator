@@ -16,6 +16,7 @@ import scramble from './scramble';
 import shift from './shift';
 import shiftBits from './shift-bits';
 import toMANS from './to-mans';
+import * as unicode from './unicode';
 
 export default
 {
@@ -31,7 +32,8 @@ export default
   scramble,
   shift,
   shiftBits,
-  toMANS
+  toMANS,
+  unicode
 };
 
 export
@@ -48,5 +50,6 @@ export
   scramble,
   shift,
   shiftBits,
-  toMANS
+  toMANS,
+  unicode
 };

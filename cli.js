@@ -27,6 +27,8 @@ const usageString = `
     shift
     shiftBits
     toMANS
+    unicode.fixSurrogates
+    unicode.unfixSurrogates
 
   Examples
     $ string-mutilator shift "Hello World!" 6

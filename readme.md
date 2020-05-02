@@ -43,6 +43,9 @@ More or less just for fun.
 <dt><a href="#module_stringMutilator">stringMutilator</a></dt>
 <dd><p>Functions for mutilating strings.</p>
 </dd>
+<dt><a href="#module_stringMutilator/unicode">stringMutilator/unicode</a></dt>
+<dd><p>Functions for handle unicode stuff.</p>
+</dd>
 </dl>
 
 ## Functions
@@ -239,6 +242,39 @@ stringMutilator.compressor.signature('䡥汬漠坯牬搡');
 
 ## stringMutilator
 Functions for mutilating strings.
+
+<a name="module_stringMutilator/unicode"></a>
+
+## stringMutilator/unicode
+Functions for handle unicode stuff.
+
+
+* [stringMutilator/unicode](#module_stringMutilator/unicode)
+    * [~fixSurrogates(string)](#module_stringMutilator/unicode..fixSurrogates) ⇒ <code>string</code>
+    * [~unfixSurrogates(string)](#module_stringMutilator/unicode..unfixSurrogates) ⇒ <code>string</code>
+
+<a name="module_stringMutilator/unicode..fixSurrogates"></a>
+
+### stringMutilator/unicode~fixSurrogates(string) ⇒ <code>string</code>
+Fix unpaired high/low surrogates by adding a blank high/low surrogate
+(U+D800 or U+DC00) to the required location.
+
+**Kind**: inner method of [<code>stringMutilator/unicode</code>](#module_stringMutilator/unicode)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| string | <code>string</code> | The input string |
+
+<a name="module_stringMutilator/unicode..unfixSurrogates"></a>
+
+### stringMutilator/unicode~unfixSurrogates(string) ⇒ <code>string</code>
+Remove the by `fixSurrogates` added blank high/low surrogates.
+
+**Kind**: inner method of [<code>stringMutilator/unicode</code>](#module_stringMutilator/unicode)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| string | <code>string</code> | The input string |
 
 <a name="flipBits"></a>
 
@@ -532,6 +568,8 @@ $ string-mutilator --help
       shift
       shiftBits
       toMANS
+      unicode.fixSurrogates
+      unicode.unfixSurrogates
 
     Examples
       $ string-mutilator shift "Hello World!" 6
