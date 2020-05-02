@@ -21,9 +21,17 @@ const isLowSurrogate = char => (/^[\uDC00-\uDFFF]$/.test(char));
 
 /**
  * Fix unpaired high/low surrogates by adding a blank high/low surrogate
- * (U+D800 or U+DC00) to the required location.
+ * (`U+D800` or `U+DC00`) to the designated location. An unpaired surrogate can
+ * lead to problems, for example by copying it to the clipboard could result in
+ * a Replacement Character � (`U+FFFD`). For example if the string is
+ * `'\uD801'` it will be altered to `'\uD801\uDC00'` (`'𐐀'`) or `'\uDE80'` to
+ * `'\uD800\uDE80'` (`'𐊀'`).
  * @param {string} string The input string
  * @returns {string}
+ * @see https://en.wikipedia.org/wiki/UTF-16#U+D800_to_U+DFFF
+ * @example
+ * stringMutilator.unicode.fixSurrogates('Test: \uD801 \uDE80');
+ * // > 'Test: 𐐀 𐊀'
  */
 const fixSurrogates = string =>
 {
@@ -56,6 +64,9 @@ const fixSurrogates = string =>
  * Remove the by `fixSurrogates` added blank high/low surrogates.
  * @param {string} string The input string
  * @returns {string}
+ * @example
+ * stringMutilator.unfixSurrogates('Test: 𐐀 𐊀');
+ * // > 'Test: \uD801 \uDE80'
  */
 const unfixSurrogates = string =>
   string.replace(/([\uD800|\uDC00])/g, '');

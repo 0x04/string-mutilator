@@ -1,8 +1,8 @@
 /**
- * Flip the character bits of a string. The 16 character bits of 'A' are
+ * Flip the character bits of a string. The 16 character bits of `'A'` are
  * `00000000 01000001` - if we flip the bits (so every 0 becomes 1 and vice
- * versa) they look like this `11111111 10111110`. This means that 'A' (0x41)
- * becomes 'ﾾ' (0xFFBE).
+ * versa) they look like this `11111111 10111110`. This means that `'A'`
+ * (`U+0041`) becomes `'ﾾ'` (`U+FFBE`).
  * @param {string} string The input string.
  * @return {string}
  * @example

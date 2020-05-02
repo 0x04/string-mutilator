@@ -1,9 +1,10 @@
 import shift from './shift';
 
 /**
- * Rotate the character bits of a string. The 16 character bits of 'A' are
+ * Rotate the character bits of a string. The 16 character bits of `'A'` are
  * `00000000 01000001` - if we shift the bits by -4 `n` digits they look like
- * this `00010000 00000100`. This means that 'A' (0x41) becomes 'င' (0x1004).
+ * this `00010000 00000100`. This means that `'A'` (`U+0041`) becomes `'င'`
+ * (`U+1004`).
  * @param {string} string The input string.
  * @param {number} [n=1] Number of digits to rotate the character bit.
  *                     Positive for right rotation,

@@ -20,7 +20,7 @@ const getRandomType = (exclude = []) => {
 
 /**
  * Applies `toMANS` to all characters with a random `type`.
- * For example `Hello World` turns into `𝐇𝖾𝓵𝗹𝘰 𝔚𝗈𝒓𝔩𝔡`.
+ * For example `'Hello World'` turns into `'𝐇𝖾𝓵𝗹𝘰 𝔚𝗈𝒓𝔩𝔡'`.
  * @param {string} string The input string
  * @param {array} [exclude=[ 1, 2 ]] Exclude specific `type` of `toMANS`
  * @returns {string}

@@ -23,6 +23,13 @@ So I decided to combine these "strange" functions into one library.
 More or less just for fun.
 
 
+## Demo
+
+A [comprehensive demo][pseudo-cipherer-demo] of all functions can be found in
+the demonstration of this library/package in the demo project
+[`pseudeo-chiperer`][pseudo-cipherer-repo].
+
+
 ## Table of content
 
 1. [Modules](#user-content-module)
@@ -52,23 +59,24 @@ More or less just for fun.
 
 <dl>
 <dt><a href="#flipBits">flipBits(string)</a> ⇒ <code>string</code></dt>
-<dd><p>Flip the character bits of a string. The 16 character bits of &#39;A&#39; are
+<dd><p>Flip the character bits of a string. The 16 character bits of <code>&#39;A&#39;</code> are
 <code>00000000 01000001</code> - if we flip the bits (so every 0 becomes 1 and vice
-versa) they look like this <code>11111111 10111110</code>. This means that &#39;A&#39; (0x41)
-becomes &#39;ﾾ&#39; (0xFFBE).</p>
+versa) they look like this <code>11111111 10111110</code>. This means that <code>&#39;A&#39;</code>
+(<code>U+0041</code>) becomes <code>&#39;ﾾ&#39;</code> (<code>U+FFBE</code>).</p>
 </dd>
 <dt><a href="#gobbledygook">gobbledygook(string, [exclude])</a> ⇒ <code>string</code></dt>
 <dd><p>Applies <code>toMANS</code> to all characters with a random <code>type</code>.
-For example <code>Hello World</code> turns into <code>𝐇𝖾𝓵𝗹𝘰 𝔚𝗈𝒓𝔩𝔡</code>.</p>
+For example <code>&#39;Hello World&#39;</code> turns into <code>&#39;𝐇𝖾𝓵𝗹𝘰 𝔚𝗈𝒓𝔩𝔡&#39;</code>.</p>
 </dd>
 <dt><a href="#jumble">jumble(string, [runs])</a> ⇒ <code>string</code></dt>
 <dd><p>Jumble the letters of all words in a string,
 except the first and last one, to keep it readable.</p>
 </dd>
 <dt><a href="#reverseBits">reverseBits(string)</a> ⇒ <code>string</code></dt>
-<dd><p>Reverse the character bits of a string. The 16 character bits of &#39;A&#39; are
+<dd><p>Reverse the character bits of a string. The 16 character bits of <code>&#39;A&#39;</code> are
 <code>00000000 01000001</code> - if we reverse the bits they look like this
-<code>10000010 00000000</code>. This means that &#39;A&#39; (0x41) becomes &#39;舀&#39; (0x8200).</p>
+<code>10000010 00000000</code>. This means that <code>&#39;A&#39;</code> (<code>U+0041</code>) becomes <code>&#39;舀&#39;</code>
+(<code>U+8200</code>).</p>
 </dd>
 <dt><a href="#reverse">reverse(string)</a> ⇒ <code>string</code></dt>
 <dd><p>Reverse a string.</p>
@@ -83,9 +91,10 @@ except the first and last one, to keep it readable.</p>
 <dd><p>Randomize the order of the characters in a string.</p>
 </dd>
 <dt><a href="#shiftBits">shiftBits(string, [n])</a> ⇒ <code>string</code></dt>
-<dd><p>Rotate the character bits of a string. The 16 character bits of &#39;A&#39; are
+<dd><p>Rotate the character bits of a string. The 16 character bits of <code>&#39;A&#39;</code> are
 <code>00000000 01000001</code> - if we shift the bits by -4 <code>n</code> digits they look like
-this <code>00010000 00000100</code>. This means that &#39;A&#39; (0x41) becomes &#39;င&#39; (0x1004).</p>
+this <code>00010000 00000100</code>. This means that <code>&#39;A&#39;</code> (<code>U+0041</code>) becomes <code>&#39;င&#39;</code>
+(<code>U+1004</code>).</p>
 </dd>
 <dt><a href="#shift">shift(string, [n])</a> ⇒ <code>string</code></dt>
 <dd><p>Shift the characters of a string by <code>n</code> digits.</p>
@@ -257,14 +266,24 @@ Functions for handle unicode stuff.
 
 ### stringMutilator/unicode~fixSurrogates(string) ⇒ <code>string</code>
 Fix unpaired high/low surrogates by adding a blank high/low surrogate
-(U+D800 or U+DC00) to the required location.
+(`U+D800` or `U+DC00`) to the designated location. An unpaired surrogate can
+lead to problems, for example by copying it to the clipboard could result in
+a Replacement Character � (`U+FFFD`). For example if the string is
+`'\uD801'` it will be altered to `'\uD801\uDC00'` (`'𐐀'`) or `'\uDE80'` to
+`'\uD800\uDE80'` (`'𐊀'`).
 
 **Kind**: inner method of [<code>stringMutilator/unicode</code>](#module_stringMutilator/unicode)  
+**See**: https://en.wikipedia.org/wiki/UTF-16#U+D800_to_U+DFFF  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | string | <code>string</code> | The input string |
 
+**Example**  
+```js
+stringMutilator.unicode.fixSurrogates('Test: \uD801 \uDE80');
+// > 'Test: 𐐀 𐊀'
+```
 <a name="module_stringMutilator/unicode..unfixSurrogates"></a>
 
 ### stringMutilator/unicode~unfixSurrogates(string) ⇒ <code>string</code>
@@ -276,13 +295,18 @@ Remove the by `fixSurrogates` added blank high/low surrogates.
 | --- | --- | --- |
 | string | <code>string</code> | The input string |
 
+**Example**  
+```js
+stringMutilator.unfixSurrogates('Test: 𐐀 𐊀');
+// > 'Test: \uD801 \uDE80'
+```
 <a name="flipBits"></a>
 
 ## flipBits(string) ⇒ <code>string</code>
-Flip the character bits of a string. The 16 character bits of 'A' are
+Flip the character bits of a string. The 16 character bits of `'A'` are
 `00000000 01000001` - if we flip the bits (so every 0 becomes 1 and vice
-versa) they look like this `11111111 10111110`. This means that 'A' (0x41)
-becomes 'ﾾ' (0xFFBE).
+versa) they look like this `11111111 10111110`. This means that `'A'`
+(`U+0041`) becomes `'ﾾ'` (`U+FFBE`).
 
 **Kind**: global function  
 
@@ -299,7 +323,7 @@ stringMutilator.flipBits('Hello World!');
 
 ## gobbledygook(string, [exclude]) ⇒ <code>string</code>
 Applies `toMANS` to all characters with a random `type`.
-For example `Hello World` turns into `𝐇𝖾𝓵𝗹𝘰 𝔚𝗈𝒓𝔩𝔡`.
+For example `'Hello World'` turns into `'𝐇𝖾𝓵𝗹𝘰 𝔚𝗈𝒓𝔩𝔡'`.
 
 **Kind**: global function  
 
@@ -335,9 +359,10 @@ stringMutilator.jumble('Hello World!');
 <a name="reverseBits"></a>
 
 ## reverseBits(string) ⇒ <code>string</code>
-Reverse the character bits of a string. The 16 character bits of 'A' are
+Reverse the character bits of a string. The 16 character bits of `'A'` are
 `00000000 01000001` - if we reverse the bits they look like this
-`10000010 00000000`. This means that 'A' (0x41) becomes '舀' (0x8200).
+`10000010 00000000`. This means that `'A'` (`U+0041`) becomes `'舀'`
+(`U+8200`).
 
 **Kind**: global function  
 
@@ -424,9 +449,10 @@ stringMutilator.scramble('Hello World!');
 <a name="shiftBits"></a>
 
 ## shiftBits(string, [n]) ⇒ <code>string</code>
-Rotate the character bits of a string. The 16 character bits of 'A' are
+Rotate the character bits of a string. The 16 character bits of `'A'` are
 `00000000 01000001` - if we shift the bits by -4 `n` digits they look like
-this `00010000 00000100`. This means that 'A' (0x41) becomes 'င' (0x1004).
+this `00010000 00000100`. This means that `'A'` (`U+0041`) becomes `'င'`
+(`U+1004`).
 
 **Kind**: global function  
 
@@ -496,6 +522,11 @@ stringMutilator.toMANS('Hello World!', 1);
 
 ### List of involutory functions
 
+* [`flipBits`](#flipBits)
+* [`reverse`](#reverse)
+* [`reverseBits`](#reverseBits)
+* [`rot13`](#rot13)
+
 **Example**
 
 ```js
@@ -505,25 +536,50 @@ rot13(rot13('Hello World!')) === 'Hello World!';
 // > true
 ```
 
-* [`charCase.invert`](#module_stringMutilator/charCase.invert)
-* [`flipBits`](#flipBits)
-* [`reverse`](#reverse)
-* [`reverseBits`](#reverseBits)
-* [`rot13`](#rot13)
-
 ### List of involutory functions with negated arguments
+
+* [`charCase.invert`](#module_stringMutilator/charCase..invert)
+* [`shift`](#shift)
+* [`shiftBits`](#shiftBits)
 
 **Example**
 
-```
+```js
 import { shift } from '@0x04/string-mutilator';
 
 shift(shift('Hello World!', 5), -5) === 'Hello World!';
 // > true
 ```
 
-* [`shift`](#shift)
-* [`shiftBits`](#shiftBits)
+### List of involutory functions with counter function
+
+* [`compressor.pack`](#module_stringMutilator/compressor..pack) / [`compressor.unpack`](#module_stringMutilator/compressor..unpack)
+* [`unicode.fixSurrogates`](#module_stringMutilator/unicode..fixSurrogates) / [`unicode.unfixSurrogates`](#module_stringMutilator/unicode..unfixSurrogates)
+
+**Examples**
+
+```js
+import { compressor } from '@0x04/string-mutilator';
+
+compressor.unpack(compressor.pack('Hello World!')) === 'Hello World!';
+// > true
+```
+
+### List of non involutory functions
+
+* [`compressor.signature`](#module_stringMutilator/compressor..signature)
+* [`gobbledygook`](#gobbledygook)
+* [`jumble`](#jumble)
+* [`rockdotize`](#rockdotize)
+* [`scramble`](#scramble)
+* [`toMANS`](#toMANS)
+
+```js
+import { jumble } from '@0x04/string-mutilator';
+
+jumble(jumble('Hello World!')) === 'Hello World!';
+// > false
+```
 
 
 ## Using the CLI
@@ -590,7 +646,8 @@ $ string-mutilator --help
 
 <!-- Links -->
 [0x04]: mailto:ok@0x04.de
-
+[pseudo-cipherer-demo]: https://0x04.github.io/pseudo-cipherer
+[pseudo-cipherer-repo]: https://github.com/0x04/pseudo-cipherer
 
 <!-- Appendix -->
 [involution]: https://en.wikipedia.org/wiki/Involution_(mathematics)
