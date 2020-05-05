@@ -40,7 +40,8 @@ const unpack = string =>
   unescape(
     escape(string)
       .replace(/u(..)/g, '$1%')
-  );
+  )
+  .replace(/\x00+$/, '');
 
 /**
  * Return the given, packed string with the unpack signature.
