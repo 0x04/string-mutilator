@@ -170,6 +170,16 @@ this <code>00010000 00000100</code>. This means that <code>&#39;A&#39;</code> (<
 ## stringMutilator/charCase
 Functions for manipulating the letter case of strings.
 
+
+* [stringMutilator/charCase](#module_stringMutilator/charCase)
+    * [~invert(string, [every])](#module_stringMutilator/charCase..invert) ⇒ <code>string</code>
+    * [~snakeCase(string)](#module_stringMutilator/charCase..snakeCase) ⇒ <code>string</code>
+    * [~camelCase(string)](#module_stringMutilator/charCase..camelCase) ⇒ <code>string</code>
+    * [~kebabCase(string)](#module_stringMutilator/charCase..kebabCase) ⇒ <code>string</code>
+    * [~dotCase(string)](#module_stringMutilator/charCase..dotCase) ⇒ <code>string</code>
+    * [~pascalCase(string)](#module_stringMutilator/charCase..pascalCase) ⇒ <code>string</code>
+    * [~capitalize(string)](#module_stringMutilator/charCase..capitalize) ⇒ <code>string</code>
+
 <a name="module_stringMutilator/charCase..invert"></a>
 
 ### stringMutilator/charCase~invert(string, [every]) ⇒ <code>string</code>
@@ -186,6 +196,102 @@ Invert the case of letters in a string.
 ```js
 stringMutilator.charCase.invert('Hello World!');
 // > 'hELLO wORLD!'
+```
+<a name="module_stringMutilator/charCase..snakeCase"></a>
+
+### stringMutilator/charCase~snakeCase(string) ⇒ <code>string</code>
+Change the case of given string to "Snake Case".
+
+**Kind**: inner method of [<code>stringMutilator/charCase</code>](#module_stringMutilator/charCase)  
+
+| Param | Type |
+| --- | --- |
+| string | <code>string</code> | 
+
+**Example**  
+```js
+stringMutilator.charCase.snakeCase('Hello World');
+// > 'hello_world'
+```
+<a name="module_stringMutilator/charCase..camelCase"></a>
+
+### stringMutilator/charCase~camelCase(string) ⇒ <code>string</code>
+Change the case of the given string to "Camel Case".
+
+**Kind**: inner method of [<code>stringMutilator/charCase</code>](#module_stringMutilator/charCase)  
+
+| Param | Type |
+| --- | --- |
+| string | <code>string</code> | 
+
+**Example**  
+```js
+stringMutilator.charCase.camelCase('Hello World');
+// > 'helloWorld'
+```
+<a name="module_stringMutilator/charCase..kebabCase"></a>
+
+### stringMutilator/charCase~kebabCase(string) ⇒ <code>string</code>
+Change the case of the given string to "Kebap Case".
+
+**Kind**: inner method of [<code>stringMutilator/charCase</code>](#module_stringMutilator/charCase)  
+
+| Param | Type |
+| --- | --- |
+| string | <code>string</code> | 
+
+**Example**  
+```js
+stringMutilator.charCase.kebabCase('Hello World');
+// > 'hello-world'
+```
+<a name="module_stringMutilator/charCase..dotCase"></a>
+
+### stringMutilator/charCase~dotCase(string) ⇒ <code>string</code>
+Change the case of the given string to "Dot Case".
+
+**Kind**: inner method of [<code>stringMutilator/charCase</code>](#module_stringMutilator/charCase)  
+
+| Param | Type |
+| --- | --- |
+| string | <code>string</code> | 
+
+**Example**  
+```js
+stringMutilator.charCase.dotCase('Hello World');
+// > 'hello.world'
+```
+<a name="module_stringMutilator/charCase..pascalCase"></a>
+
+### stringMutilator/charCase~pascalCase(string) ⇒ <code>string</code>
+Change the case of the given string to "Pascal Case".
+
+**Kind**: inner method of [<code>stringMutilator/charCase</code>](#module_stringMutilator/charCase)  
+
+| Param | Type |
+| --- | --- |
+| string | <code>string</code> | 
+
+**Example**  
+```js
+stringMutilator.charCase.pascalCase('Hello World');
+// > 'HelloWorld'
+```
+<a name="module_stringMutilator/charCase..capitalize"></a>
+
+### stringMutilator/charCase~capitalize(string) ⇒ <code>string</code>
+Change the case of the given string to "Capitalized".
+
+**Kind**: inner method of [<code>stringMutilator/charCase</code>](#module_stringMutilator/charCase)  
+
+| Param | Type |
+| --- | --- |
+| string | <code>string</code> | 
+
+**Example**  
+```js
+stringMutilator.charCase.capitalize('hello world');
+// > 'Hello World'
 ```
 <a name="module_stringMutilator/compressor"></a>
 
@@ -613,6 +719,12 @@ $ string-mutilator --help
       compressor.pack
       compressor.unpack
       compressor.signature
+      charCase.snakeCase
+      charCase.camelCase
+      charCase.kebabCase
+      charCase.dotCase
+      charCase.pascalCase
+      charCase.capitalize
       flipBits
       gobbledygook
       jumble

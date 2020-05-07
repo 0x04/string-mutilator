@@ -13,6 +13,12 @@ const usageString = `
 
   Functions
     charCase.invert
+    charCase.snakeCase
+    charCase.camelCase
+    charCase.kebabCase
+    charCase.dotCase
+    charCase.pascalCase
+    charCase.capitalize
     compressor.pack
     compressor.unpack
     compressor.signature
