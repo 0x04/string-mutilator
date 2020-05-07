@@ -56,7 +56,8 @@ try
 
   if (!fnString || args.length === 0)
   {
-    throw new Error('Invalid arguments!')
+    console.error('Invalid arguments!', usageString);
+    exitCode = 1;
   }
 
   const fn = resolveFn(stringMutilator, fnString)
