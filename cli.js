@@ -2,7 +2,6 @@
 
 const stringMutilator = require('./lib');
 
-let exitCode = 0;
 
 const [,, fnString, ...args] = process.argv;
 const usageString = `
@@ -51,13 +50,13 @@ try
   if (/^(-h|--help)$/.test(fnString))
   {
     console.info(usageString);
-    process.exit(exitCode);
+    process.exit(0);
   }
 
   if (!fnString || args.length === 0)
   {
-    console.error('Invalid arguments!', usageString);
-    exitCode = 1;
+    console.error(errorString, usageString);
+    process.exit(1);
   }
 
   const fn = resolveFn(stringMutilator, fnString)
@@ -68,7 +67,7 @@ try
 catch (e)
 {
   console.error(errorString, usageString);
-  exitCode = 1;
+  process.exit(1);
 }
 
-process.exit(exitCode);
+process.exit(0);
