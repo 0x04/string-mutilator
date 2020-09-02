@@ -12,6 +12,8 @@ export const stringLower = 'hello world!';
 
 export const stringUpper = 'HELLO WORLD!';
 
+export const stringCapitalized = 'Hello World!';
+
 export const stringShort = 'How much wood would a wood chuck '
   + 'if a wood chuck could chuck wood.';
 

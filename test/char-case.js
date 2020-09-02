@@ -61,3 +61,28 @@ test('invert: undefined argument `string`', t =>
     () => charCase.invert(undefined)
   )
 );
+
+const caseFns = new Map();
+
+caseFns.set('hello_world!', charCase.snakeCase);
+caseFns.set('helloWorld!', charCase.camelCase);
+caseFns.set('hello-world!', charCase.kebabCase);
+caseFns.set('hello.world!', charCase.dotCase);
+caseFns.set('HelloWorld!', charCase.pascalCase);
+caseFns.set('Hello World!', charCase.capitalize);
+
+const caseTestData = new Map();
+
+caseTestData.set('stringLower', testData.stringLower);
+// FIXME: That isn't a trivial problem as it seems at first
+// caseTestData.set('stringUpper', testData.stringUpper);
+caseTestData.set('stringCapitalized', testData.stringCapitalized);
+
+caseFns.forEach((fn, resultString) =>
+  caseTestData.forEach((testString, testName) =>
+    test(`${fn.name}: ${testName}`, t => t.is(
+      fn(testString),
+      resultString
+    ))
+  )
+);
