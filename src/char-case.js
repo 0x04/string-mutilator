@@ -30,11 +30,8 @@ const punctuationRegExp = /([-_. ])([a-z])/ig;
  * @param {string} char
  * @return {string}
  */
-const casePunctuationReplace = (string, char) =>
-  string
-    .replace(punctuationRegExp, `${char}$2`)
-    .replace(/([a-z])([A-Z])/g, `$1${char}$2`)
-    .replace(/([A-Z])([A-Z])/g, `$1${char}$2`);
+const punctuationReplace = (string, char) =>
+  string.replace(punctuationRegExp, `${char}$2`);
 
 /**
  * Change the case of given string to "Snake Case".
@@ -45,7 +42,7 @@ const casePunctuationReplace = (string, char) =>
  * // > 'hello_world'
  */
 const snakeCase = string =>
-  casePunctuationReplace(string, '_')
+  punctuationReplace(string, '_')
     .toLowerCase();
 
 /**
@@ -70,7 +67,7 @@ const camelCase = string =>
  * // > 'hello-world'
  */
 const kebabCase = string =>
-  casePunctuationReplace(string, '-')
+  punctuationReplace(string, '-')
     .toLowerCase();
 
 /**
@@ -82,7 +79,7 @@ const kebabCase = string =>
  * // > 'hello.world'
  */
 const dotCase = string =>
-  casePunctuationReplace(string, '.')
+  punctuationReplace(string, '.')
     .toLowerCase();
 
 /**
@@ -96,7 +93,7 @@ const dotCase = string =>
 const pascalCase = string =>
   string
     .replace(punctuationRegExp, (m, a, b) => b.toUpperCase())
-    .replace(/^([A-Z])/, (m, a) => a.toUpperCase());
+    .replace(/^([a-z])/, (m, a) => a.toUpperCase());
 
 /**
  * Change the case of the given string to "Capitalized".
